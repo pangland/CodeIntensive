@@ -7,7 +7,6 @@ class SQLObject
   def self.columns
     return @columns unless @columns.nil?
 
-    # @columns = [] # this line is superfluous, I think?
     column_names = DBConnection.execute2(<<-SQL)
       SELECT *
       FROM #{self.table_name}
@@ -47,13 +46,6 @@ class SQLObject
   end
 
   def self.parse_all(results)
-    # final_answer = []
-    # results.each do |result|
-    #   final_answer << self.new(result)
-    # end
-    #
-    # final_answer
-
     results.map { |result| self.new(result) }
   end
 
@@ -82,7 +74,7 @@ class SQLObject
     column_names = column_names.reject { |el| el == :id }.join(',')
     attributes_present = attribute_values.reject(&:nil?)
     question_marks = (['?'] * attributes_present.length).join(',')
-    # debugger
+
     DBConnection.execute(<<-SQL, *attributes_present)
       INSERT INTO #{self.class.table_name} (#{column_names})
       VALUES (#{question_marks})
