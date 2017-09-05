@@ -1,9 +1,15 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
 require 'byebug'
-require 'active_support/inflector'
+# require 'Searchable'
+# require 'Associatable'
 
 class SQLObject
+  # extend Searchable
+  # include Searchable
+  # extend Associatable
+  # include Associatable
+
   def self.columns
     return @columns unless @columns.nil?
 

@@ -27,6 +27,8 @@ describe 'Associatable' do
     end
   end
 
+  debugger
+
   describe '::assoc_options' do
     it 'defaults to empty hash' do
       class TempClass < SQLObject
