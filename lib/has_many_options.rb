@@ -1,3 +1,5 @@
+require_relative 'assoc_options'
+
 class HasManyOptions < AssocOptions
   def initialize(name, self_class_name, options = {})
     class_name = self_class_name.to_s.singularize.underscore.camelcase.downcase

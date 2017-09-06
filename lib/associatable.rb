@@ -1,3 +1,6 @@
+require_relative 'has_many_options'
+require_relative 'belongs_to_options'
+
 module Associatable
   def belongs_to(name, options = {})
     self.assoc_options[name] = BelongsToOptions.new(name, options)

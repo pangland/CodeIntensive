@@ -60,10 +60,11 @@ class SQLObject
   end
 
   def initialize(params = {})
+    debugger
     params.each do |key, value|
       key = key.to_sym
       raise "unknown attribute '#{key}'" unless self.class.columns.include?(key)
-      self.send("#{key}=",value)
+      self.send("#{key}=", value)
     end
   end
 

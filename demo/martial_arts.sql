@@ -3,16 +3,16 @@ CREATE TABLE signature_techniques (
   technique VARCHAR(255) NOT NULL,
   owner_id INTEGER,
 
-  FOREIGN KEY(owner_id) REFERENCES human(id)
+  FOREIGN KEY(owner_id) REFERENCES practitioner(id)
 );
 
 CREATE TABLE practitioners (
   id INTEGER PRIMARY KEY,
   fname VARCHAR(255) NOT NULL,
   lname VARCHAR(255) NOT NULL,
-  martial_arts INTEGER,
+  style_id INTEGER,
 
-  FOREIGN KEY(style_id) REFERENCES practitioner(id)
+  FOREIGN KEY(style_id) REFERENCES style(id)
 );
 
 CREATE TABLE styles (
@@ -21,14 +21,14 @@ CREATE TABLE styles (
 );
 
 INSERT INTO
-  schools (id, title)
+  styles (id, style)
 VALUES
   (1, "Brazilian Jiu Jitsu"),
   (2, "Jeet Kun Do"),
   (3, "Boxing");
 
 INSERT INTO
-  humans (id, fname, lname, house_id)
+  practitioners (id, fname, lname, style_id)
 VALUES
   (1, "Marcelo", "Garcia", 1),
   (2, "Demian", "Maia", 1),
@@ -36,7 +36,7 @@ VALUES
   (4, "'Sugar' Ray", "Robinson", 3);
 
 INSERT INTO
-  cats (id, name, owner_id)
+  signature_techniques (id, technique, owner_id)
 VALUES
   (1, "Arm drag", 1),
   (2, "Triangle choke", 2),
