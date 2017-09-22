@@ -20,6 +20,8 @@ require 'byebug'
 
 class Style < SQLObject
   has_many :practitioners
+  debugger
+  has_one_through :signature_technique, :practitioner, :signature_techniques
   self.finalize!
 end
 
@@ -31,6 +33,6 @@ class Practitioner < SQLObject
 end
 
 class SignatureTechnique < SQLObject
-  belongs_to :practitioner
+  belongs_to :practitioner, foreign_key: :owner_id
   self.finalize!
 end
