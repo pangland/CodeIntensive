@@ -1,4 +1,7 @@
 require_relative 'assoc_options'
+require_relative 'belongs_to_options'
+require_relative 'searchable'
+require 'active_support/inflector'
 
 class HasManyOptions < AssocOptions
   def initialize(name, self_class_name, options = {})

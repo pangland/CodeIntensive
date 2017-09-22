@@ -1,5 +1,8 @@
 require_relative 'has_many_options'
 require_relative 'belongs_to_options'
+require_relative 'searchable'
+require 'active_support/inflector'
+require_relative 'assoc_options'
 
 module Associatable
   def belongs_to(name, options = {})

@@ -1,3 +1,5 @@
+require_relative 'db_connection'
+
 module Searchable
   def where(params)
     where_line = params.keys.map { |el| "#{el} = ?"}.join(' AND ')

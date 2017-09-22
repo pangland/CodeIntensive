@@ -1,3 +1,8 @@
+require_relative 'assoc_options'
+require_relative 'has_many_options'
+require_relative 'searchable'
+require 'active_support/inflector'
+
 class BelongsToOptions < AssocOptions
   def initialize(name, options = {})
     class_name = name.to_s.singularize.underscore.camelcase.downcase
